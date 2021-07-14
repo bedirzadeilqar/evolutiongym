@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "editisci";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@using evolution_gym.Models
+<div class="col-sm-6">
+    <h2>İşçi Məlumatlarını Dəyiş</h2>
+    <form action="~/Admin/updateisci/@ViewBag.isi.IsciId" method="post">
+        <div class="form-group">
+            <label for="usr">IsciAd:</label>
+            <input type="text" class="form-control" id="usr" name="IsciAd" placeholder="IsciAd" value="@ViewBag.isi.IsciAd">
+        </div>
+        <div class="form-group">
+            <label for="usr">IsciSoyad:</label>
+            <input type="text" class="form-control" id="usr" name="IsciSoyad" placeholder="IsciSoyad" value="@ViewBag.isi.IsciSoyad">
+        </div>
+        <div class="form-group">
+            <label for="usr">IsciVezife:</label>
+            <select name="IsciVezifeId">
+                @foreach (var item in ViewBag.vezife)
+                {
+                    <option @(item.VezifeId == ViewBag.isi.IsciVezifeId ? "selected" : "") value="@item.VezifeId">@item.VezifeAd</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="usr">IsciFilial:</label>
+            <select name="IsciFilialId">
+                @foreach (var item in ViewBag.filial)
+                {
+                    <option @(item.FilialId == ViewBag.isi.IsciFilialId ? "selected" : "") value="@item.FilialId">@item.FilialAd</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="usr">IsciIseBaslamaTarixi:</label>
+            <input type="text" class="form-control" id="usr" name="IsciIseBaslamaTarixi" placeholder="IsciIseBaslamaTarixi" value="@ViewBag.isi.IsciIseBaslamaTarixi">
+        </div>
+        <div class="form-group">
+            <label for="usr">IsciResmiMaas:</label>
+            <input type="text" class="form-control" id="usr" name="IsciResmiMaas" placeholder="IsciResmiMaas" value="@ViewBag.isi.IsciResmiMaas">
+        </div>
+        <div class="form-group">
+            <label for="usr">IsciMotivasiyaMaas:</label>
+            <input type="text" class="form-control" id="usr" name="IsciMotivasiyaMaas" placeholder="IsciMotivasiyaMaas" value="@ViewBag.isi.IsciMotivasiyaMaas">
+        </div>
+        <button type="submit" class="btn btn-success">Dəyiş</button>
+    </form>
+</div>
+

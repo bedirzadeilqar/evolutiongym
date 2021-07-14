@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "edittelebe";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using evolution_gym.Models
+<div class="col-sm-6">
+    <h2>Tələbə Məlumatlarını Dəyiş</h2>
+    <form action="~/Admin/updatetelebe/@ViewBag.tel.Telebeİd" method="post">
+        <div class="form-group">
+            <label for="usr">TelebeAd:</label>
+            <input type="text" class="form-control" id="usr" name="TelebeAd" placeholder="TelebeAd" value="@ViewBag.tel.TelebeAd">
+        </div>
+        <div class="form-group">
+            <label for="usr">TelebeSoyad:</label>
+            <input type="text" class="form-control" id="usr" name="TelebeSoyad" placeholder="TelebeSoyad" value="@ViewBag.tel.TelebeSoyad">
+        </div>
+        <div class="form-group">
+            <label for="usr">TelebeFilial:</label>
+            <select name="TelebeFilialId">
+                @foreach (var item in ViewBag.filial)
+                {
+                    <option @(item.FilialId == ViewBag.tel.TelebeFilialId ? "selected" : "") value="@item.FilialId">@item.FilialAd</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="usr">TelebeTrainer:</label>
+            <select name="TelebeTrainerId">
+                @foreach (var item in ViewBag.trainer)
+                {
+                    <option @(item.TrainerId == ViewBag.tel.TelebeTrainerId ? "selected" : "") value="@item.TrainerId">@item.TrainerAd</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="usr">TelebeMesqeBaslamaTarixi:</label>
+            <input type="text" class="form-control" id="usr" name="TelebeMesqeBaslamaTarixi" placeholder="TelebeMesqeBaslamaTarixi" value="@ViewBag.tel.TelebeMesqeBaslamaTarixi">
+        </div>
+        <div class="form-group">
+            <label for="usr">TelebeAyliqOdenis:</label>
+            <input type="text" class="form-control" id="usr" name="TelebeAyliqOdenis" placeholder="TelebeAyliqOdenis" value="@ViewBag.tel.TelebeAyliqOdenis">
+        </div>
+        <button type="submit" class="btn btn-success">Dəyiş</button>
+    </form>
+</div>

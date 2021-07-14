@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/Login.cshtml";
+}
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <div class="fadeIn first">
+            <img style="width: 100px;height: 100px;" src="~/assets/img/sport.jpg" />
+        </div>
+        <form method="post" action="~/Login/SignIn">
+            <input type="text" id="IstifadeciMail" style="cursor: pointer;" class="fadeIn second" name="IstifadeciMail" placeholder="E-mail address">
+            <input type="text" id="IstifadeciParol" style="cursor: pointer;" class="fadeIn third" name="IstifadeciParol" autocomplete="off" placeholder="password">
+            <input style="cursor: pointer;" type="submit" class="fadeIn fourth" value="Log In">
+        </form>
+        <div class="error">
+            <small style="color:red;width: 10px;">@TempData["Message"]</small>
+        </div>
+    </div>
+</div>  
+

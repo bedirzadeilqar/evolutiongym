@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="idmanzali" Class="DataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-M5BK3NF\SQLEXPRESS;Initial Catalog=idmanzali;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="idmanzaliConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Filial" Member="Filials">
+    <Type Name="Filial">
+      <Column Name="FilialId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FilialAd" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Vezife" Member="Vezifes">
+    <Type Name="Vezife">
+      <Column Name="VezifeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VezifeAd" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Isci" Member="Iscis">
+    <Type Name="Isci">
+      <Column Name="IsciId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IsciAd" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="IsciSoyad" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="IsciIseBaslamaTarixi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsciResmiMaas" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="IsciMotivasiyaMaas" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="IsciVezifeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsciFilialId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.IsciMain" Member="IsciMains">
+    <Type Name="IsciMain">
+      <Column Name="IsciId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsciAd" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="IsciSoyad" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="IsciIseBaslamaTarixi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsciResmiMaas" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="IsciMotivasiyaMaas" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="IsciVezifeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsciFilialId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VezifeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VezifeAd" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="FilialId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FilialAd" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TelebeMain" Member="TelebeMains">
+    <Type Name="TelebeMain">
+      <Column Name="Telebeİd" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TelebeAd" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="TelebeSoyad" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="TelebeMesqeBaslamaTarixi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TelebeAyliqOdenis" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TelebeFilialId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TelebeTrainerId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FilialId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FilialAd" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="TrainerId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TrainerAd" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="TrainerSoyad" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Telebe" Member="Telebes">
+    <Type Name="Telebe">
+      <Column Name="Telebeİd" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TelebeAd" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="TelebeSoyad" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="TelebeMesqeBaslamaTarixi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TelebeAyliqOdenis" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TelebeFilialId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TelebeTrainerId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Trainer" Member="Trainers">
+    <Type Name="Trainer">
+      <Column Name="TrainerId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TrainerAd" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="TrainerSoyad" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Comunal" Member="Comunals">
+    <Type Name="Comunal">
+      <Column Name="ComunalId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ComunalAd" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ComunalTarix" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ComunalMiqdar" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ComunalFilialId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ComunalMain" Member="ComunalMains">
+    <Type Name="ComunalMain">
+      <Column Name="ComunalId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ComunalAd" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ComunalTarix" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ComunalMiqdar" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ComunalFilialId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FilialId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FilialAd" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Arenda" Member="Arendas">
+    <Type Name="Arenda">
+      <Column Name="ArendaId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ArendaFilialId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ArendaOdenisTarixi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ArendaAyliqOdenis" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ArendaMain" Member="ArendaMains">
+    <Type Name="ArendaMain">
+      <Column Name="ArendaId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ArendaFilialId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ArendaOdenisTarixi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ArendaAyliqOdenis" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="FilialId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FilialAd" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Bildiris" Member="Bildiris">
+    <Type Name="Bildiri">
+      <Column Name="Telebeİd" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TelebeAd" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="TelebeSoyad" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="TelebeMesqeBaslamaTarixi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TelebeAyliqOdenis" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TelebeFilialId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TelebeTrainerId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.IsciBildiris" Member="IsciBildiris">
+    <Type Name="IsciBildiri">
+      <Column Name="IsciId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IsciAd" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="IsciSoyad" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="IsciIseBaslamaTarixi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsciResmiMaas" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="IsciMotivasiyaMaas" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="IsciVezifeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsciFilialId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

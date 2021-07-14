@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "editcomunal";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using evolution_gym.Models
+<div class="col-sm-6">
+    <h2>Comunal Xərc Məlumatlarını Dəyiş</h2>
+    <form action="~/Admin/updatecomunal/@ViewBag.com.ComunalId" method="post">
+        <div class="form-group">
+            <label for="usr">ComunalAd:</label>
+            <input type="text" class="form-control" id="usr" name="ComunalAd" placeholder="ComunalAd" value="@ViewBag.com.ComunalAd">
+        </div>
+        <div class="form-group">
+            <label for="usr">ComunalTarix:</label>
+            <input type="text" class="form-control" id="usr" name="ComunalTarix" placeholder="ComunalTarix" value="@ViewBag.com.ComunalTarix">
+        </div>
+        <div class="form-group">
+            <label for="usr">ComunalFilial:</label>
+            <select name="ComunalFilialId">
+                @foreach (var item in ViewBag.filial)
+                {
+                    <option @(item.FilialId == ViewBag.com.ComunalFilialId ? "selected" : "") value="@item.FilialId">@item.FilialAd</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="usr">ComunalMiqdar:</label>
+            <input type="text" class="form-control" id="usr" name="ComunalMiqdar" placeholder="ComunalMiqdar" value="@ViewBag.com.ComunalMiqdar">
+        </div>
+        <button type="submit" class="btn btn-success">Dəyiş</button>
+    </form>
+</div>
+

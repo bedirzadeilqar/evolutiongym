@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "telebebildiris";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@*<ul style="list-style-type: none;">
+        @foreach (var item in ViewBag.bildiris)
+        {
+        <h2><li>@item.TelebeAd <a href="~/Admin/edittelebe/@item.Telebeİd">@item.TelebeAyliqOdenis Azn</a></li></h2>
+
+        }
+    </ul>*@
+
+<div class="container">
+    <h2>Tələbə Bildirişlər </h2>
+    <table class="table table-bordered table-sm">
+        <thead>
+            <tr>
+                <th>TələbəAd</th>
+                <th>TələbəSoyad</th>
+                <th>TələbəFilial</th>
+                <th>TələbəTrainer</th>
+                <th>TələbəMəşqəBaşlamaTarixi</th>
+                <th>TələbəAylıqÖdəniş</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.bildiris)
+            {
+                <tr class="text-center" style="text-align:center;">
+                    <td>@item.TelebeAd</td>
+                    <td>@item.TelebeSoyad</td>
+                    <td>@item.TelebeFilialId</td>
+                    <td>@item.TelebeTrainerId</td>
+                    <td>@item.TelebeMesqeBaslamaTarixi</td>
+                    <td>@item.TelebeAd <a href="~/Admin/edittelebe/@item.Telebeİd">@item.TelebeAyliqOdenis Azn</a></td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

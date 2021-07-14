@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h2 style="font-weight: 750;" >Evolution Gym <span style="color: blueviolet;">İşçi</span> Siyahısı</h2>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="istədiyiniz işçini axtarın.." title="Type in a name">
+
+<table id="myTable">
+    <thead>
+        <tr class="header">
+            <th style="width:20%;color: blueviolet;">İşçiAd</th>
+            <th style="width:20%;color: blueviolet;">İşçiSoyad</th>
+            <th style="width:20%;color: blueviolet;">İşçiVəzifə</th>
+            <th style="width:20%;color: blueviolet;">İşçiFilial</th>
+            <th style="width:20%;color: blueviolet;">İşçiİşəBaşlamaTarixi</th>
+            <th style="width:20%;color: blueviolet;">İşçiRəsmiMaaş</th>
+            <th style="width:20%;color: blueviolet;">İşçiMotivasiyaMaaş</th>
+            <th class="text-center" colspan="2"><a href="~/Admin/Index">+</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.isci)
+        {
+            <tr class="text-center" style="text-align:center;">
+                <td>@item.IsciAd</td>
+                <td>@item.IsciSoyad</td>
+                <td>@item.VezifeAd</td>
+                <td>@item.FilialAd</td>
+                <td>@item.IsciIseBaslamaTarixi</td>
+                <td>@item.IsciResmiMaas</td>
+                <td>@item.IsciMotivasiyaMaas</td>
+                <td><a href="~/Admin/Deleteisci/@item.IsciId">del</a></td>
+                <td><a href="~/Admin/editisci/@item.IsciId">edit</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h2>Yeni İşçi Əlavə Et</h2>
+            <form action="~/Admin/insertisci" method="post">
+                <div class="form-group">
+                    <label for="usr">IsciAd:</label>
+                    <input type="text" class="form-control" id="usr" name="IsciAd" placeholder="IsciAd">
+                </div>
+                <div class="form-group">
+                    <label for="usr">IsciSoyad:</label>
+                    <input type="text" class="form-control" id="usr" name="IsciSoyad" placeholder="IsciSoyad">
+                </div>
+                <div class="form-group">
+                    <label for="usr">IsciVezife:</label>
+                    <select name="IsciVezifeId">
+                        @foreach (var item in ViewBag.vezife)
+                        {
+                            <option value="@item.VezifeId">@item.VezifeAd</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="usr">IsciFilial:</label>
+                    <select name="IsciFilialId">
+                        @foreach (var item in ViewBag.filial)
+                        {
+                            <option value="@item.FilialId">@item.FilialAd</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="usr">IsciIseBaslamaTarixi:</label>
+                    <input type="date" class="form-control" id="usr" name="IsciIseBaslamaTarixi" placeholder="IsciIseBaslamaTarixi">
+                </div>
+                <div class="form-group">
+                    <label for="usr">IsciResmiMaas:</label>
+                    <input type="text" class="form-control" id="usr" name="IsciResmiMaas" placeholder="IsciResmiMaas">
+                </div>
+                <div class="form-group">
+                    <label for="usr">IsciMotivasiyaMaas:</label>
+                    <input type="text" class="form-control" id="usr" name="IsciMotivasiyaMaas" placeholder="IsciMotivasiyaMaas">
+                </div>
+                <button type="submit" class="btn btn-success">Əlavə Et</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+

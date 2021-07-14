@@ -1,0 +1,117 @@
+﻿
+@{
+    var cookie = Request.Cookies["Admin"];
+    try
+    {
+        if (Request.Cookies["Admin"] == null)
+        {
+            Response.Redirect("~/Login/Login");
+        }
+    }
+    catch (Exception)
+    {
+        Response.Redirect("~/Login/Login");
+    }
+}
+    <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Bootstrap Admin Template : Binary Admin</title>
+    <link href="~/assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/assets/css/custom.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link href="~/assets/css/w3table.css" rel="stylesheet" />
+    <script src="~/assets/js/w3tablesearch.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="~/Admin/index">Evolution Gym</a>
+            </div>
+            <div style="color: white;padding: 15px 50px 5px 50px;float: right;font-size: 16px;">
+                created by : İlqar Bədirzadə &nbsp;
+                <a href="~/Login/Logout" style="font-size: 20px;font-weight: 700;" class="btn btn-danger square-btn-adjust">Çıxış</a>
+            </div>
+        </nav>
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li class="text-center">
+                        @*<img src="~/assets/img/find_user.png" class="user-image img-responsive" />*@
+                        <img src="~/assets/img/sport.jpg" class="user-image img-responsive" />
+                    </li>
+                    <li>
+                        <a href="~/Admin/index"><i class="fas fa-user-tie fa-3x"></i><span style="font-size: 23px;">İşçi Siyahısı</span></a>
+                    </li>
+                    <li>
+                        <a href="~/Admin/telebe"><i class="fas fa-user-graduate fa-3x"></i><span style="font-size: 21px;">Tələbə Siyahısı</span></a>
+                    </li>
+                    <li>
+                        <a href="~/Admin/arenda"><i class="fas fa-layer-group fa-3x"></i><span style="font-size: 21px;">Arenda Xərcləri</span></a>
+                    </li>
+                    <li>
+                        <a href="~/Admin/comunal"><i class="fas fa-fan fa-3x"></i><span style="font-size: 20px;">Komunal Xərclər</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><i style="color: greenyellow;" class="fas fa-bell fa-3x"></i><span style="font-size: 18px;">Gələn Bütün Bildirişlər</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#">Tələbə Bildirişlər<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    @*<li>
+                                            <a href="#">Third Level Link</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Third Level Link</a>
+                                        </li>*@
+                                    @Html.Partial("View")
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">İşçi Bildirişlər<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    @*<li>
+                                            <a href="#">Third Level Link</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Third Level Link</a>
+                                        </li>*@
+                                    @Html.Partial("viewisci")
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    @*@Html.Partial("View")*@
+                </ul>
+            </div>
+        </nav>
+        <div id="page-wrapper">
+            <div id="page-inner">
+                @RenderBody()
+                <hr />
+            </div>
+        </div>
+    </div>
+    <script src="~/assets/js/jquery-1.10.2.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/jquery.metisMenu.js"></script>
+    <script src="~/assets/js/custom.js"></script>
+
+
+</body>
+</html>
+

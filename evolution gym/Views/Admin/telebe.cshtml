@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "telebe";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h2 style="font-weight: 750;">Evolution Gym <span style="color: blueviolet;">Tələbə</span> Siyahısı</h2>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="istədiyiniz tələbəni axtarın.." title="Type in a name">
+
+<table id="myTable">
+    <thead>
+        <tr class="header">
+            <th style="width:20%;color: blueviolet;">TələbəAd</th>
+            <th style="width:20%;color: blueviolet;">TələbəSoyad</th>
+            <th style="width:20%;color: blueviolet;">TələbəFilial</th>
+            <th style="width:20%;color: blueviolet;">TələbəTrainer</th>
+            <th style="width:20%;color: blueviolet;">TələbəMəşqəBaşlamaTarixi</th>
+            <th style="width:20%;color: blueviolet;">TələbəAylıqÖdəniş</th>
+            <th class="text-center" colspan="2"><a href="~/Admin/telebe">+</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.telebe)
+        {
+        <tr class="text-center" style="text-align:center;">
+            <td>@item.TelebeAd</td>
+            <td>@item.TelebeSoyad</td>
+            <td>@item.FilialAd</td>
+            <td>@item.TrainerAd</td>
+            <td>@item.TelebeMesqeBaslamaTarixi</td>
+            <td>@item.TelebeAyliqOdenis</td>
+            <td><a href="~/Admin/Deletetelebe/@item.Telebeİd">del</a></td>
+            <td><a href="~/Admin/edittelebe/@item.Telebeİd">edit</a></td>
+        </tr>
+        }
+    </tbody>
+</table> 
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h2>Yeni Tələbə Əlavə Et</h2>
+            <form action="~/Admin/inserttelebe" method="post">
+                <div class="form-group">
+                    <label for="usr">TələbəAd:</label>
+                    <input type="text" class="form-control" id="usr" name="TelebeAd" placeholder="TelebeAd">
+                </div>
+                <div class="form-group">
+                    <label for="usr">TələbəSoyad:</label>
+                    <input type="text" class="form-control" id="usr" name="TelebeSoyad" placeholder="TelebeSoyad">
+                </div>
+                <div class="form-group">
+                    <label for="usr">TələbəFilial:</label>
+                    <select name="TelebeFilialId">
+                        @foreach (var item in ViewBag.filial)
+                        {
+                            <option value="@item.FilialId">@item.FilialAd</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="usr">TələbəTrainer:</label>
+                    <select name="TelebeTrainerId">
+                        @foreach (var item in ViewBag.trainer)
+                        {
+                            <option value="@item.TrainerId">@item.TrainerAd</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="usr">TələbəMəsqəBaşlamaTarixi:</label>
+                    <input type="date" class="form-control" id="usr" name="TelebeMesqeBaslamaTarixi" placeholder="TelebeMesqeBaslamaTarixi">
+                </div>
+                <div class="form-group">
+                    <label for="usr">TələbəAylıqÖdəniş:</label>
+                    <input type="text" class="form-control" id="usr" name="TelebeAyliqOdenis" placeholder="TelebeAyliqOdenis">
+                </div>
+                <button type="submit" class="btn btn-success">Əlavə Et</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+

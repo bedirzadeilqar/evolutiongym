@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "arenda";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 style="font-weight: 750;">Evolution Gym <span style="color: blueviolet;">Arenda</span> Xərclərin Siyahısı</h2>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="istədiyiniz arenda xərcini axtarın.." title="Type in a name">
+
+<table id="myTable">
+    <thead>
+        <tr class="header">
+            <th style="width:20%;color: blueviolet;">ArendaFilial</th>
+            <th style="width:20%;color: blueviolet;">ArendaÖdənişTarixi</th>
+            <th style="width:20%;color: blueviolet;">ArendaAylıqÖdəniş</th>
+            <th class="text-center" colspan="2"><a href="~/Admin/arenda">+</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.arenda)
+        {
+            <tr class="text-center" style="text-align:center;">
+                <td>@item.FilialAd</td>
+                <td>@item.ArendaOdenisTarixi</td>
+                <td>@item.ArendaAyliqOdenis</td>
+                <td><a href="~/Admin/Deletearenda/@item.ArendaId">del</a></td>
+                <td><a href="~/Admin/editarenda/@item.ArendaId">edit</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h2>Yeni Arenda Xərci Əlavə Et</h2>
+            <form action="~/Admin/insertarenda" method="post">
+                <div class="form-group">
+                    <label for="usr">ArendaFilial:</label>
+                    <select name="ArendaFilialId">
+                        @foreach (var item in ViewBag.filial)
+                        {
+                            <option value="@item.FilialId">@item.FilialAd</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="usr">ArendaÖdənişTarixi:</label>
+                    <input type="date" class="form-control" id="usr" name="ArendaOdenisTarixi" placeholder="ArendaOdenisTarixi">
+                </div>
+                <div class="form-group">
+                    <label for="usr">ArendaAylıqÖdəniş:</label>
+                    <input type="text" class="form-control" id="usr" name="ArendaAyliqOdenis" placeholder="ArendaAyliqOdenis">
+                </div>
+                <button type="submit" class="btn btn-success">Əlavə Et</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

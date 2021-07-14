@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "iscibildiris";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <h2>İşçi Bildirişlər </h2>
+    <table class="table table-bordered table-sm">
+        <thead>
+            <tr>
+                <th>İşçiAd</th>
+                <th>İşçiSoyad</th>
+                <th>İşçiİşəBaşlamaTarixi</th>
+                <th>İşçiRəsmiMaaş</th>
+                <th>İşçiMotivasiyaMaaş</th>
+                <th>İşçiVəzifəİd</th>
+                <th>İşçiFilialİd</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.iscibildiri)
+            {
+                <tr class="text-center" style="text-align:center;">
+                    <td>@item.IsciAd</td>
+                    <td>@item.IsciSoyad</td>
+                    <td>@item.IsciIseBaslamaTarixi</td>
+                    <td>@item.IsciAd <a href="~/Admin/editisci/@item.IsciId">@item.IsciResmiMaas Azn</a></td>
+                    <td>@item.IsciMotivasiyaMaas</td>
+                    <td>@item.IsciVezifeId</td>
+                    <td>@item.IsciFilialId</td>
+                </tr> 
+            }
+            
+
+        </tbody>
+    </table>
+</div>
+
